@@ -20,8 +20,8 @@ export class ListProduitComponent implements OnInit {
     { headerName: 'Id', field: 'id', hide: true, height: 100 },
     { headerName: 'Name', field: 'name', height: 100 },
     { headerName: 'Price', field: 'price' },
+    { headerName: 'Stock', field: 'stock' },
     { headerName: 'CreationDate', field: 'creationDate' },
-    { headerName: 'UpdateDate', field: 'updateDate' },
     {
       field: 'Action',
       cellRenderer: BtnCellRendererComponent,

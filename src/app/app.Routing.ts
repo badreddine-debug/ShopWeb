@@ -15,25 +15,9 @@ const App_Routing = [
       ),
   },
   {
-    path: 'Home',
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'Product',
-        component: ProductComponent,
-        children: [
-          {
-            path: '',
-            component: ListProduitComponent,
-          },
-          {
-            path: 'Add',
-            component: AddProduitComponent,
-          },
-        ],
-      },
-    ],
+    path: '',
+    loadChildren: () =>
+      import('./Product/product.module').then((m) => m.ProductModule),
   },
   { path: '**', component: NotfoundComponent },
 ];
