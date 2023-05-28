@@ -13,14 +13,14 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   GetListProduct(): Observable<Produit[]> {
-    return this.http.get<Produit[]>(this.LinkProduct);
-    // return this.http
-    //   .get<Produit[]>(this.LinkProduct)
-    //   .pipe(
-    //     map((dataArray: any[]) =>
-    //       dataArray.filter((dataObject: any) => dataObject.id === 1)
-    //     )
-    //   );
+    //return this.http.get<Produit[]>(this.LinkProduct);
+    return this.http
+      .get<Produit[]>(this.LinkProduct)
+      .pipe(
+        map((dataArray: any[]) =>
+          dataArray.filter((dataObject: any) => dataObject.id === 1)
+        )
+      );
   }
 
   SearchListProduct(product: Produit): Observable<Produit[]> {
