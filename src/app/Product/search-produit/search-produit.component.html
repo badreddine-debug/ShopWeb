@@ -1,0 +1,39 @@
+<div class="container" style="padding: 20px">
+  <form [formGroup]="SearchInputProduit" (ngSubmit)="SearchProduit()">
+    <div class="row">
+      <div class="col-4">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          placeholder="name"
+          formControlName="name"
+        />
+      </div>
+      <div class="col-4">
+        <input
+          type="text"
+          class="form-control"
+          name="price"
+          placeholder="price"
+          formControlName="price"
+        />
+      </div>
+    </div>
+    <div class="row" style="padding-top: 10px">
+      <div class="col-4">
+        <input
+          type="text"
+          class="form-control"
+          name="stock"
+          placeholder="stock"
+          formControlName="stock"
+        />
+      </div>
+
+      <div class="col-4">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
