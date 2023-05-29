@@ -12,7 +12,7 @@ import { GridComponent } from './grid/grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { BtnCellRendererComponent } from './btn-cell-renderer/btn-cell-renderer.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AuthGuard } from './Service/auth.guard';
@@ -42,6 +42,7 @@ import { SearchProduitComponent } from './Product/search-produit/search-produit.
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    FormsModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

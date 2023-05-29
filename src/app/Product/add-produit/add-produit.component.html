@@ -1,1 +1,60 @@
-<p>add-produit works!</p>
+<div class="container">
+  <form [formGroup]="myform" (ngSubmit)="SaveProduct(myform.value)">
+    <div class="row">
+      <div class="col-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="name"
+          name="name"
+          formControlName="name"
+          required
+        />
+        <div *ngif="name.errors['required']" class="alert alert-danger">
+          le name est un champ oligatoire
+        </div>
+      </div>
+      <div class="col-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="price"
+          name="price"
+          formControlName="price"
+          required
+        />
+        <div
+          *ngif="
+            ValueRequired['price'].errors &&
+            ValueRequired['price'].errors['required']
+          "
+          class="alert alert-danger"
+        >
+          le prix est un champ oligatoire
+        </div>
+      </div>
+      <div class="col-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="stock"
+          name="stock"
+          formControlName="stock"
+          required
+        />
+        <div
+          *ngif="
+            ValueRequired['stock'].errors &&
+            ValueRequired['stock'].errors['required']
+          "
+          class="alert alert-danger"
+        >
+          le stock est un champ oligatoire
+        </div>
+      </div>
+    </div>
+    <div style="float: right; padding-top: 20px">
+      <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+    </div>
+  </form>
+</div>
