@@ -22,11 +22,39 @@ export class SearchProduitComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // SearchProduit() {
+  //   this.product.name = this.SearchInputProduit.value.name;
+  //   this.product.price = this.SearchInputProduit.value.price ?? 0;
+  //   this.product.stock = this.SearchInputProduit.value.stock ?? 0;
+  //   this.serviceProduct.SearchListProduct(this.product).subscribe((data) => {
+  //     this.SearchListProduit.emit(data);
+  //   });
+  // }
+
   SearchProduit() {
-    this.product.name = this.SearchInputProduit.value.name;
-    this.product.price = this.SearchInputProduit.value.price ?? 0;
-    this.product.stock = this.SearchInputProduit.value.stock ?? 0;
-    this.serviceProduct.SearchListProduct(this.product).subscribe((data) => {
+    this.serviceProduct.GetListProduct().subscribe((data) => {
+      debugger;
+      if (
+        this.SearchInputProduit.value.name != '' &&
+        this.SearchInputProduit.value.name != null
+      ) {
+        data = data.filter((x) =>
+          x.name.includes(this.SearchInputProduit.value.name)
+        );
+      }
+
+      if (this.SearchInputProduit.value.price > 0) {
+        data = data.filter(
+          (x) => x.price == this.SearchInputProduit.value.price
+        );
+      }
+
+      if (this.SearchInputProduit.value.stock > 0) {
+        data = data.filter(
+          (x) => x.stock >= this.SearchInputProduit.value.stock
+        );
+      }
+
       this.SearchListProduit.emit(data);
     });
   }
