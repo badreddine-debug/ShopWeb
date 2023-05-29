@@ -33,7 +33,6 @@ export class SearchProduitComponent implements OnInit {
 
   SearchProduit() {
     this.serviceProduct.GetListProduct().subscribe((data) => {
-      debugger;
       if (
         this.SearchInputProduit.value.name != '' &&
         this.SearchInputProduit.value.name != null
