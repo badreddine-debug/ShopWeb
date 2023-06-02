@@ -41,7 +41,6 @@ export class ListProduitComponent implements OnInit {
   }
 
   ListProduit(Product: Produit[]) {
-    debugger;
     this.rowData = Product;
   }
 
