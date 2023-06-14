@@ -11,6 +11,7 @@ export class ProductService {
   LinkProduct = 'http://localhost:5000/api/Products/GetProducts';
   LinkSearchProduct = 'http://localhost:5000/api/Products/SearchListProducts';
   LinkSaveProduct = 'http://localhost:5000/api/Products/InsertProduct';
+  LinkGetProductById = 'http://localhost:5000/api/Products/GetProductById';
   constructor(private http: HttpClient) {}
 
   GetListProduct(): Observable<Produit[]> {
@@ -30,5 +31,9 @@ export class ProductService {
 
   SaveProduct(product: Produit): Observable<boolean> {
     return this.http.post<boolean>(this.LinkSaveProduct, product);
+  }
+
+  GetProductById(id: number): Observable<Produit> {
+    return this.http.get<Produit>(this.LinkGetProductById + '?id=' + id);
   }
 }

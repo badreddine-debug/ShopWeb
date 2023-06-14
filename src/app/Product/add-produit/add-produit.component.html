@@ -3,12 +3,22 @@
     <div class="row">
       <div class="col-6">
         <input
+          type="hidden"
+          class="form-control"
+          placeholder="id"
+          name="id"
+          formControlName="id"
+          required
+          value="{{ myform.value.id }}"
+        />
+        <input
           type="text"
           class="form-control"
           placeholder="name"
           name="name"
           formControlName="name"
           required
+          value="{{ myform.value.name }}"
         />
         <div *ngif="name.errors['required']" class="alert alert-danger">
           le name est un champ oligatoire
@@ -22,6 +32,7 @@
           name="price"
           formControlName="price"
           required
+          value="{{ myform.value.price }}"
         />
         <div
           *ngif="
@@ -41,6 +52,7 @@
           name="stock"
           formControlName="stock"
           required
+          value="{{ myform.value.stock }}"
         />
         <div
           *ngif="
